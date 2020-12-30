@@ -4,7 +4,8 @@ export default (posts = [], action) => {
             return posts.filter((post) => post._id !== action.payload);
         case 'FETCH_POSTS':
             return action.payload;
-        case 'LIKE': 
+        case 'LIKE':
+        case 'UNLIKE':
             return posts.map((post) => post._id === action.payload._id ? action.payload : post);
         case 'CREATE': 
             return [...posts, action.payload]; 

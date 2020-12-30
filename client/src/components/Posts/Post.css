@@ -172,9 +172,22 @@ a {
     padding: 1em;
 }
 
+.input_container {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 1em;
+}
+
 .comment_input {
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    padding: .5em .8em;
+    border-radius: 15px;
+    background: #4f4f4f;
+    border: 1px solid #3f3f3f;
+    outline: none;
+    color: #eee;
 }
 
 /* OUT OF POSTS */

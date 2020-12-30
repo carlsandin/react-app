@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import './Post.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, likePost } from '../../actions/posts';
+import { deletePost, likePost, unLikePost } from '../../actions/posts';
 import { FaHeart, FaRegTrashAlt, FaRegCommentAlt } from 'react-icons/fa';
 
 const Post = ({ post, currentUser }) => {
@@ -14,7 +14,11 @@ const Post = ({ post, currentUser }) => {
 
     const updateLike = () => {
         setLiked(!liked);
-        dispatch(likePost(post._id));
+        if(!liked) {
+            dispatch(likePost(post._id));
+        } else if(liked) {
+            dispatch(unLikePost(post._id));
+        }
     }
 
     const showSettings = () => {
