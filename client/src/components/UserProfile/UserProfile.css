@@ -1,0 +1,72 @@
+.user_profile_container {
+  width: 100%;
+  margin-top: 50px;
+  display: grid;
+  justify-items: center;
+}
+
+.showcase_img {
+  background: #fff;
+  width: 100%;
+  height: 30vh;
+  border-bottom: 1px solid #3f3f3f;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.user_profile_info {
+  color: #eee;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin-top: -80px;
+}
+
+.user_profile_avatar {
+  height: 150px;
+  width: 150px;
+  border: 1px solid #3f3f3f;
+  border-radius: 50%;
+}
+
+.user_follow_container {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: #eee;
+  border-top: 1px solid #eee;
+}
+
+.user_follow {
+  display: grid;
+  justify-items: center;
+  padding: 1em;
+}
+
+.user_profile_posts {
+  width: 90%;
+}
+
+.sort_posts {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sort_btn {
+  background: none;
+  outline: none;
+  border: 1px solid #eee;
+  color: #eee;
+  border-radius: 15px;
+  padding: 0.4em 0.8em;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.sort_btn_active {
+  border: 1px solid #fff;
+  background: #eee;
+  color: #2f2f2f;
+}

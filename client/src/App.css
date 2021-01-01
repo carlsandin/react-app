@@ -1,17 +1,46 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-smooth: always;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; 
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.react-link {
+  margin: 0;
 }
 
 .app_container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #3f3f3f;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #3f3f3f;
+}
+
+input {
+  padding: 0.5em 0.8em;
+  border-radius: 15px;
+  background: #4f4f4f;
+  border: 1px solid #3f3f3f;
+  outline: none;
+  color: #eee;
+}
+
+.user_avatar {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #4f4f4f;
+  border-radius: 50%;
+  margin-right: 5px;
+  object-fit: cover;
+  overflow: hidden;
 }
