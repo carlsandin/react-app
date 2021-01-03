@@ -8,22 +8,25 @@ import "./Post.css";
 const Posts = () => {
   const posts = useSelector((state) => state.posts);
   const users = useSelector((state) => state.users);
-  const user = useSelector((state) => state.signin);
-  const { userInfo } = user;
+  const currUser = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : undefined;
   const feed = [];
-  const userPosts = posts.filter((x) => x.creator === userInfo.username);
+  const userPosts = posts.filter((x) => x.creator === currUser.username);
   userPosts.forEach((post) => {
     feed.push(post);
   });
-  const currentUser = users.find((x) => x.username === userInfo.username);
-  if (currentUser.following.length > 0) {
-    for (let i = 0; i < currentUser.following.length; i++) {
-      let followPosts = posts.filter(
-        (x) => x.creator === currentUser.following[i]
-      );
-      followPosts.forEach((post) => {
-        feed.push(post);
-      });
+  const currentUser = users.find((x) => x.username === currUser.username);
+  if (currentUser) {
+    if (currentUser.following.length > 0) {
+      for (let i = 0; i < currentUser.following.length; i++) {
+        let followPosts = posts.filter(
+          (x) => x.creator === currentUser.following[i]
+        );
+        followPosts.forEach((post) => {
+          feed.push(post);
+        });
+      }
     }
   }
 

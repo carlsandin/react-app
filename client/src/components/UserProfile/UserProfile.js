@@ -8,6 +8,7 @@ const UserProfile = ({ match }) => {
   const users = useSelector((state) => state.users);
   const posts = useSelector((state) => state.posts);
   const [sort, setSort] = useState(false);
+  console.log(match.params);
   const user = users.find((user) => user.username === match.params.id);
   const userPosts = posts.filter((post) => post.creator === user.username);
   if (!sort)
@@ -22,17 +23,12 @@ const UserProfile = ({ match }) => {
     setSort(true);
   };
 
-  const showcaseStyle = {
-    backgroundImage: "url(" + user.welcomeImage + ")",
-  };
-  console.log(user);
-  return (
+  return user ? (
     <div className="user_profile_container">
       {!user.welcomeImage ? (
         <div className="showcase_img" />
       ) : (
-        // <img src={user.welcomeImage} alt="" className="showcase_img" />
-        <div className="showcase_img" style={showcaseStyle} />
+        <div className="showcase_img" />
       )}
       <div className="user_profile_info">
         <img src={user.avatar} alt="" className="user_profile_avatar" />
@@ -69,7 +65,7 @@ const UserProfile = ({ match }) => {
         ))}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default UserProfile;

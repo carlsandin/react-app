@@ -28,6 +28,7 @@ const Search = () => {
         value={query}
         placeholder="Search Users"
         className="search_input"
+        autoComplete="off"
         onChange={(e) => setQuery(e.target.value.toLowerCase())}
       />
       {query.length > 0 ? (
@@ -36,8 +37,12 @@ const Search = () => {
             <li className="user_result">No users found</li>
           ) : (
             users.map((user) => (
-              <Link to={`/${user.username}`} onClick={resetQuery}>
-                <li className="user_result" key={user.username}>
+              <Link
+                to={`/${user.username}`}
+                onClick={resetQuery}
+                key={user.username}
+              >
+                <li className="user_result">
                   <img src={user.avatar} alt="" className="user_avatar" />
                   {user.username}
                 </li>

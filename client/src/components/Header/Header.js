@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signOut } from "../../actions/users";
 import { FaChevronDown } from "react-icons/fa";
 import "./Header.css";
@@ -7,12 +7,14 @@ import Search from "./Search";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const user = useSelector((state) => state.signin);
   const [showMenu, setShowMenu] = useState(false);
-  const { userInfo } = user;
+  const currUser = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : undefined;
   const dispatch = useDispatch();
   const logOutUser = () => {
     dispatch(signOut());
+    window.location.reload();
   };
 
   const toggleMenu = () => {
@@ -20,13 +22,13 @@ const Header = () => {
   };
   return (
     <div className="header_container">
+      <Search />
       <Link className="react-link" to="/">
         <h3 className="header_logo">Project</h3>
       </Link>
-      <Search />
       <div className="header_user">
         <img className="post_icon_img" alt="" />
-        <h3>{userInfo.username}</h3>
+        <h3>{currUser.username}</h3>
         <div className="menu_container">
           <FaChevronDown
             className={showMenu ? "arrow_up" : "arrow_down"}

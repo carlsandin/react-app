@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import moment from "moment";
 import "./Post.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deletePost, likePost, unLikePost } from "../../actions/posts";
 import { FaHeart, FaRegTrashAlt, FaRegCommentAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -10,8 +10,9 @@ const Post = ({ post, currentUser }) => {
   const [editPost, setEditPost] = useState(false);
   const [liked, setLiked] = useState(false);
   const [showComments, setShowComments] = useState(false);
-  const user = useSelector((state) => state.signin);
-  const { userInfo } = user;
+  const currUser = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : undefined;
   const dispatch = useDispatch();
 
   const updateLike = () => {
@@ -29,7 +30,6 @@ const Post = ({ post, currentUser }) => {
 
   const comments = () => {
     setShowComments(!showComments);
-    console.log(showComments);
   };
   return (
     <div className="post_card">
@@ -41,14 +41,14 @@ const Post = ({ post, currentUser }) => {
               <h3>{post.creator}</h3>
             </Link>
           </div>
-          {userInfo.username === post.creator ? (
+          {currUser.username === post.creator ? (
             <div className="post_settings" onClick={showSettings}>
               <div className="dot" />
               <div className="dot" />
               <div className="dot" />
             </div>
           ) : null}
-          {userInfo.username === post.creator ? (
+          {currUser.username === post.creator ? (
             <div className={editPost ? "change_post display" : "change_post"}>
               <li onClick={() => dispatch(deletePost(post._id))}>
                 <FaRegTrashAlt /> Delete

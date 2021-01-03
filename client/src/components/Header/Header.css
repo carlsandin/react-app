@@ -15,7 +15,10 @@
 }
 
 .header_logo {
-  margin-left: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .header_user {
@@ -81,25 +84,21 @@
 /* SEARCH */
 
 .search_input {
-  width: 10%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: 2em;
+  width: 200px;
   background: #2f2f2f;
   transition: width 0.4s;
 }
 
 .search_input:focus {
-  width: 40%;
+  width: calc(300px - 1.6em);
 }
 
 .search_results {
   position: absolute;
   top: 60px;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  width: 60%;
+  left: 1.8em;
+  width: calc(300px);
   background: #2f2f2f;
   border-radius: 15px;
   border: 1px solid #4f4f4f;
