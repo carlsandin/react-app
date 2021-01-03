@@ -8,13 +8,15 @@ const UserProfile = ({ match }) => {
   const users = useSelector((state) => state.users);
   const posts = useSelector((state) => state.posts);
   const [sort, setSort] = useState(false);
-  console.log(match.params);
   const user = users.find((user) => user.username === match.params.id);
   const userPosts = posts.filter((post) => post.creator === user.username);
+  let date;
   if (!sort)
     userPosts.sort((a, b) =>
       b.createdAt > a.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0
     );
+
+  if(user) date = user.createdAt.split('T')[0];
 
   const sortNew = () => {
     setSort(false);
@@ -63,6 +65,9 @@ const UserProfile = ({ match }) => {
         {userPosts.map((post) => (
           <Post post={post} key={post._id} currentUser={user} />
         ))}
+      </div>
+      <div>
+        <h3>Joined <span>{date}</span></h3>
       </div>
     </div>
   ) : null;
