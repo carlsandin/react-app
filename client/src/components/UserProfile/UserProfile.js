@@ -10,7 +10,9 @@ const UserProfile = ({ match }) => {
   const posts = useSelector((state) => state.posts);
   const [sort, setSort] = useState(false);
   const user = users.find((user) => user.username === match.params.id);
-  const userPosts = posts.filter((post) => post.creator === user.username);
+  const userPosts = user
+    ? posts.filter((post) => post.creator === user.username)
+    : [];
   console.log(users[0]);
   let date;
   if (!sort)
@@ -75,7 +77,9 @@ const UserProfile = ({ match }) => {
         </h3>
       </div>
     </div>
-  ) : null;
+  ) : (
+    <div className="no_user">No user found</div>
+  );
 };
 
 export default UserProfile;

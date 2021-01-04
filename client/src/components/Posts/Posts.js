@@ -5,6 +5,8 @@ import Post from "./Post.js";
 import { FaRegFrown } from "react-icons/fa";
 import "./Post.css";
 
+// FIX UPDATE FEED ON FOLLOW/UNFOLLOW
+
 const Posts = () => {
   const posts = useSelector((state) => state.posts);
   const users = useSelector((state) => state.users);
