@@ -36,11 +36,11 @@ export const likePost = (id, username) => async (dispatch) => {
   }
 };
 
-export const unLikePost = (id) => async (dispatch) => {
+export const unLikePost = (id, username) => async (dispatch) => {
   try {
-    const { data } = await api.unLikePost(id);
+    const { data } = await api.unLikePost(id, username);
     dispatch({ type: "UNLIKE", payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error.message, username);
   }
 };

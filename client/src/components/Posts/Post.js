@@ -8,19 +8,17 @@ import { Link } from "react-router-dom";
 
 const Post = ({ post, currentUser }) => {
   const [editPost, setEditPost] = useState(false);
-  const [liked, setLiked] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const currUser = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
     : undefined;
   const dispatch = useDispatch();
-
+  const liked = post.likedBy.find((user) => user === currUser.username);
   const updateLike = () => {
-    setLiked(!liked);
     if (!liked) {
-      dispatch(likePost(post._id));
+      dispatch(likePost(post._id, currUser.username));
     } else if (liked) {
-      dispatch(unLikePost(post._id));
+      dispatch(unLikePost(post._id, currUser.username));
     }
   };
 
@@ -80,7 +78,7 @@ const Post = ({ post, currentUser }) => {
             className={liked ? "like_btn liked" : "like_btn"}
             onClick={updateLike}
           />
-          <p>{post.likeCount}</p>
+          <p>{post.likedBy.length}</p>
         </div>
         <p>{moment(post.createdAt).fromNow()}</p>
       </div>

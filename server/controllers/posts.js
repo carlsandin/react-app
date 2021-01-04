@@ -35,42 +35,50 @@ export const deletePost = async (req, res) => {
 
 export const likePost = async (req, res) => {
   const { id } = req.params;
-  const user = req.body.username;
+  const username = req.body.username;
 
   if (!Mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");
 
-  const post = await PostMessage.findById(id);
-  const updatedPost = await PostMessage.findByIdAndUpdate(
-    id,
-    { likeCount: post.likeCount + 1 },
-    { new: true },
-    (err, result) => {
-      if (err) res.json(err.message);
-
-      PostMessage.findByIdAndUpdate(
+  if (username) {
+    try {
+      const updatedPost = await PostMessage.findByIdAndUpdate(
         id,
-        { $push: { likedBy: user } },
+        { $push: { likedBy: username } },
         { new: true }
       );
+      res.json(updatedPost);
+      console.log("Success");
+    } catch (error) {
+      res.status(401).send(error.message);
+      console.log(error.message);
     }
-  );
-
-  res.json(updatedPost);
+  } else {
+    res.status(401).send("No user");
+  }
 };
 
 export const unLikePost = async (req, res) => {
   const { id } = req.params;
+  const username = req.body.username;
 
   if (!Mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");
 
-  const post = await PostMessage.findById(id);
-  const updatedPost = await PostMessage.findByIdAndUpdate(
-    id,
-    { likeCount: post.likeCount - 1 },
-    { new: true }
-  );
-
-  res.json(updatedPost);
+  if (username) {
+    try {
+      const updatedPost = await PostMessage.findByIdAndUpdate(
+        id,
+        { $pull: { likedBy: username } },
+        { new: true }
+      );
+      res.json(updatedPost);
+      console.log("Success");
+    } catch (error) {
+      res.status(401).send(error.message);
+      console.log(error.message);
+    }
+  } else {
+    res.status(401).send("No user");
+  }
 };
