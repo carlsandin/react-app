@@ -85,7 +85,7 @@
 
 .search_input {
   margin-left: 2em;
-  width: 200px;
+  width: 20%;
   background: #2f2f2f;
   transition: width 0.4s;
 }

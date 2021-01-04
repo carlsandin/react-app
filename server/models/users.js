@@ -14,8 +14,8 @@ const Users = mongoose.Schema({
       "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png",
   },
   welcomeImage: String,
-  following: [String],
-  followers: [String],
+  following: [{ type: String, unique: true, dropDups: true }],
+  followers: [{ type: String, unique: true, dropDups: true }],
   active: {
     type: Boolean,
     default: false,
