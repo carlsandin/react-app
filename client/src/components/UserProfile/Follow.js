@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { follow, unfollow } from "../../actions/users";
 
-const Follow = ({ user }) => {
+const Follow = ({ user, currUser }) => {
   const users = useSelector((state) => state.users);
-  const currUser = localStorage.getItem("userInfo")
-    ? JSON.parse(localStorage.getItem("userInfo"))
-    : undefined;
-
   const curr = users.find((user) => user.username === currUser.username);
   let isFollowing = curr
     ? curr.following.find((x) => x === user.username)

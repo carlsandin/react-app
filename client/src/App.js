@@ -17,8 +17,10 @@ const App = () => {
     : undefined;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getPosts());
-    dispatch(getUsers());
+    if (currUser) {
+      dispatch(getPosts());
+      dispatch(getUsers());
+    }
   }, [dispatch]);
 
   return currUser ? (
