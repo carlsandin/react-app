@@ -5,7 +5,9 @@ $post-background: #05253b;
 $main-color: #eee;
 $secondary-color: #eee;
 $main-border-color: #10182b;
-$span-color: #328cc1;
+$secondary-border-color: #10182b;
+$span-color: #43c0f6;
+$box-shadow-color: 245;
 */
 .user_profile_container {
   width: 100%;
@@ -37,7 +39,7 @@ $span-color: #328cc1;
 }
 
 .user_profile_info p {
-  color: #328cc1;
+  color: #41addb;
 }
 
 .user_profile_avatar {

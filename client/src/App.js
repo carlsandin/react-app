@@ -7,9 +7,11 @@ import User from "./components/UserProfile/UserProfile";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-
+import { FaSeedling } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { getPosts } from "./actions/posts";
 import { getUsers } from "./actions/users";
+import Search from "./components/Search/Search";
 
 const App = () => {
   const currUser = localStorage.getItem("userInfo")
@@ -26,12 +28,19 @@ const App = () => {
   return currUser ? (
     <Router>
       <div className="app_container">
-        <Header />
+        <Link to="/">
+          <FaSeedling className="app_logo" />
+        </Link>
         <Route exact path="/">
+          <Header />
           <Form />
           <Posts />
         </Route>
-        <Route path="/:id" component={User} />
+        <Route exact path="/:id" component={User} />
+        <Route exact path="/search">
+          <Header />
+          <Search />
+        </Route>
       </div>
     </Router>
   ) : (

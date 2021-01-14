@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../actions/users";
-import { FaChevronDown } from "react-icons/fa";
+import { FaHome, FaHeart, FaSearch, FaUserAlt } from "react-icons/fa";
 import "./Header.css";
-import Search from "./Search";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -22,24 +21,18 @@ const Header = () => {
   };
   return (
     <div className="header_container">
-      <Search />
       <Link className="react-link" to="/">
-        <h3 className="header_logo">Project</h3>
+        <FaHome className="header_icon header_icon_active" />
       </Link>
-      <div className="header_user">
-        <img className="post_icon_img" alt="" />
-        <h3>{currUser.username}</h3>
-        <div className="menu_container">
-          <FaChevronDown
-            className={showMenu ? "arrow_up" : "arrow_down"}
-            onClick={toggleMenu}
-          />
-          <ul className={showMenu ? "user_menu display" : "user_menu"}>
-            <li>Edit profile</li>
-            <li onClick={logOutUser}>Logout</li>
-          </ul>
-        </div>
-      </div>
+      <Link className="react-link" to="/">
+        <FaHeart className="header_icon" />
+      </Link>
+      <Link className="react-link" to="/search">
+        <FaSearch className="header_icon" />
+      </Link>
+      <Link className="react-link" to={`/${currUser.username}`}>
+        <FaUserAlt className="header_icon" />
+      </Link>
     </div>
   );
 };

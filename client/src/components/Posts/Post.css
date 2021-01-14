@@ -5,7 +5,9 @@ $post-background: #05253b;
 $main-color: #eee;
 $secondary-color: #eee;
 $main-border-color: #10182b;
-$span-color: #328cc1;
+$secondary-border-color: #10182b;
+$span-color: #43c0f6;
+$box-shadow-color: 245;
 */
 .posts_container {
   width: 50%;
@@ -19,6 +21,8 @@ $span-color: #328cc1;
   background: #fff;
   color: #10182b;
   overflow: hidden;
+  -webkit-box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.49);
+          box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.49);
 }
 
 .post_img {
@@ -50,6 +54,11 @@ $span-color: #328cc1;
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
+}
+
+.post_header_top a {
+  color: #10182b;
+  text-decoration: none;
 }
 
 .post_creator {
@@ -135,10 +144,6 @@ $span-color: #328cc1;
 
 .post_message {
   margin-top: 5px;
-}
-
-a {
-  margin-top: 15px;
 }
 
 .post_footer {

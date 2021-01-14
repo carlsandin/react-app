@@ -6,6 +6,8 @@ import { deletePost, likePost, unLikePost } from "../../actions/posts";
 import { FaHeart, FaRegTrashAlt, FaRegCommentAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+// MAKE COMMENTS COMPONENT, IMPLEMENT COMMENTING
+
 const Post = ({ post, currentUser }) => {
   const [editPost, setEditPost] = useState(false);
   const [showComments, setShowComments] = useState(false);
@@ -85,7 +87,7 @@ const Post = ({ post, currentUser }) => {
       <div className="comment_container">
         <div className="comment" onClick={comments}>
           <FaRegCommentAlt />
-          <p>Comment</p>
+          <p> Comment</p>
         </div>
         <div className="comment_count">
           <p>{post.comments.length} Comments</p>
