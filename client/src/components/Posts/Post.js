@@ -36,7 +36,7 @@ const Post = ({ post, currentUser }) => {
       <div className="post_header">
         <div className="post_header_top">
           <div className="post_creator">
-            <Link className="link" to={`/${post.creator}`}>
+            <Link className="link" to={`/user/${post.creator}`}>
               <img className="user_avatar" src={currentUser.avatar} alt="" />
               <h3>{post.creator}</h3>
             </Link>
