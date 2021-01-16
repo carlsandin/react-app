@@ -26,16 +26,13 @@ const App = () => {
   return currUser ? (
     <Router>
       <div className="app_container">
+        <Header />
         <Route exact path="/">
-          <Header />
           <Form />
           <Posts />
         </Route>
-        <Route exact path="/user/:id" component={User} />
-        <Route exact path="/search">
-          <Header />
-          <Search />
-        </Route>
+        <Route path="/user/:id" component={User} />
+        <Route exact path="/search" component={Search} />
       </div>
     </Router>
   ) : (
