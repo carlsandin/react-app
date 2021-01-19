@@ -27,7 +27,13 @@ const Header = () => {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
-  useEffect(() => {}, [window.location]);
+  const activeIcon = (e) => {
+    document
+      .querySelectorAll(".header_icon")
+      .forEach((icon) => icon.classList.remove("header_icon_active"));
+    e.target.classList.add("header_icon_active");
+    console.log(e.target);
+  };
   return (
     <div className="header_container">
       <Link to="/">
@@ -36,31 +42,18 @@ const Header = () => {
       <div className="header_icon_container">
         <Link className="react-link" to="/">
           <FaHome
-            className={
-              path === "/" ? "header_icon header_icon_active" : "header_icon"
-            }
+            onClick={activeIcon}
+            className="header_icon header_icon_active"
           />
         </Link>
         <Link className="react-link" to="/">
-          <FaHeart className="header_icon" />
+          <FaHeart onClick={activeIcon} className="header_icon" />
         </Link>
         <Link className="react-link" to="/search">
-          <FaSearch
-            className={
-              path === "/search"
-                ? "header_icon header_icon_active"
-                : "header_icon"
-            }
-          />
+          <FaSearch onClick={activeIcon} className="header_icon" />
         </Link>
         <Link className="react-link" to={`/user/${currUser.username}`}>
-          <FaUserAlt
-            className={
-              path.startsWith("/user")
-                ? "header_icon header_icon_active"
-                : "header_icon"
-            }
-          />
+          <FaUserAlt onClick={activeIcon} className="header_icon" />
         </Link>
       </div>
       <div className="header_settings"></div>
