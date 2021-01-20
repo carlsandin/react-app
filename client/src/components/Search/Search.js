@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Search.css";
+import { FaTimes } from "react-icons/fa";
+import Follow from "../UserProfile/Follow";
 
 const Search = () => {
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
   const allUsers = useSelector((state) => state.users);
+  const currUser = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : undefined;
   useEffect(() => {
     setUsers(
       allUsers.filter((user) => {
@@ -23,12 +28,18 @@ const Search = () => {
   };
   return (
     <div className="search_container">
+      <FaTimes
+        onClick={resetQuery}
+        className={query.length > 0 ? "clear_search-input" : "display_none"}
+      />
       <input
         type="text"
         name="search"
         value={query}
         placeholder="Search Users"
-        className="search_input"
+        className={
+          query.length > 0 ? "search_input search_input_focus" : "search_input"
+        }
         autoComplete="off"
         onChange={(e) => setQuery(e.target.value.toLowerCase())}
       />
@@ -38,16 +49,19 @@ const Search = () => {
             <li className="user_result">No users found</li>
           ) : (
             users.map((user) => (
-              <Link
-                to={`/${user.username}`}
-                onClick={resetQuery}
-                key={user.username}
-              >
-                <li className="user_result">
-                  <img src={user.avatar} alt="" className="user_avatar" />
-                  {user.username}
-                </li>
-              </Link>
+              <div>
+                <Link
+                  to={`/user/${user.username}`}
+                  onClick={resetQuery}
+                  key={user.username}
+                >
+                  <li className="user_result">
+                    <img src={user.avatar} alt="" className="user_avatar" />
+                    {user.username}
+                  </li>
+                </Link>
+                <Follow user={user} currUser={currUser} />
+              </div>
             ))
           )}
         </ul>

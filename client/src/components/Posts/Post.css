@@ -100,8 +100,8 @@ $box-shadow-color: 245;
 
 .change_post {
   border: 1px solid #e6e6e6;
-  background: #f0f0f0;
-  color: #10182b;
+  background: #10182b;
+  color: #fff;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -120,7 +120,7 @@ $box-shadow-color: 245;
 .arrow {
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background: #f0f0f0;
+  background: #10182b;
   margin-right: -60px;
   height: 10px;
   width: 10px;

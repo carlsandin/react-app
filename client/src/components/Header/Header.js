@@ -7,13 +7,13 @@ import {
   FaSearch,
   FaUserAlt,
   FaSeedling,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  console.log(window.location.pathname);
   const currUser = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
     : undefined;
@@ -22,41 +22,61 @@ const Header = () => {
     dispatch(signOut());
     window.location.reload();
   };
-  const path = window.location.pathname;
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
   const activeIcon = (e) => {
     document
-      .querySelectorAll(".header_icon")
-      .forEach((icon) => icon.classList.remove("header_icon_active"));
-    e.target.classList.add("header_icon_active");
-    console.log(e.target);
+      .querySelectorAll(".react-link_header")
+      .forEach((icon) => icon.classList.remove("react-link_header_active"));
+    if (e.target.classList.contains("react-link_header"))
+      e.target.classList.add("react-link_header_active");
+    else if (e.target.parentElement.classList.contains("react-link_header"))
+      e.target.parentElement.classList.add("react-link_header_active");
   };
   return (
     <div className="header_container">
-      <Link to="/">
+      <NavLink to="/">
         <FaSeedling className="app_logo" />
-      </Link>
+      </NavLink>
       <div className="header_icon_container">
-        <Link className="react-link" to="/">
-          <FaHome
-            onClick={activeIcon}
-            className="header_icon header_icon_active"
-          />
-        </Link>
-        <Link className="react-link" to="/">
-          <FaHeart onClick={activeIcon} className="header_icon" />
-        </Link>
-        <Link className="react-link" to="/search">
-          <FaSearch onClick={activeIcon} className="header_icon" />
-        </Link>
-        <Link className="react-link" to={`/user/${currUser.username}`}>
-          <FaUserAlt onClick={activeIcon} className="header_icon" />
-        </Link>
+        <NavLink
+          exact
+          className="react-link_header"
+          activeClassName="react-link_header_active"
+          to="/"
+        >
+          <FaHome />
+        </NavLink>
+        <NavLink
+          exact
+          className="react-link_header"
+          activeClassName="react-link_header_active"
+          to="/explore"
+        >
+          <FaHeart />
+        </NavLink>
+        <NavLink
+          exact
+          className="react-link_header"
+          activeClassName="react-link_header_active"
+          to="/search"
+        >
+          <FaSearch />
+        </NavLink>
+        <NavLink
+          exact
+          className="react-link_header"
+          activeClassName="react-link_header_active"
+          to={`/user/${currUser.username}`}
+        >
+          <FaUserAlt />
+        </NavLink>
       </div>
-      <div className="header_settings"></div>
+      <div className="header_settings">
+        <FaSignOutAlt onClick={logOutUser} className="header_sign-out" />
+      </div>
     </div>
   );
 };

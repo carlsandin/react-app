@@ -15,16 +15,17 @@ const UserProfile = ({ match }) => {
     : undefined;
   const [sort, setSort] = useState(false);
   const user = users.find((user) => user.username === match.params.id);
+
   const userPosts = user
     ? posts.filter((post) => post.creator === user.username)
     : [];
-  console.log(users[0]);
+
   let date;
   if (!sort)
     userPosts.sort((a, b) =>
       b.createdAt > a.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0
     );
-
+  console.log(user);
   if (user) date = user.createdAt.split("T")[0];
 
   const sortNew = () => {
