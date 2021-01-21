@@ -1,0 +1,148 @@
+@import "../../Variables.scss";
+
+.form_container {
+  width: 50%;
+  margin-top: 50px;
+  border-radius: 15px;
+  background: $post-background;
+  border: 1px solid $main-border-color;
+  color: $main-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 5px 5px 15px -4px rgba($box-shadow-color, $box-shadow-color, $box-shadow-color, 0.49);
+}
+
+.input_container {
+  width: 95%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.form_lower {
+  width: 100%;
+  height: 60px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  border-top: 1px solid $main-border-color;
+}
+
+.form_input {
+  outline: none;
+  background: $main-border-color;
+  border: 1px solid $post-background;
+  margin: 15px 0;
+  padding: 6px 0px 6px 6px;
+  border-radius: 8px;
+  height: 100px;
+  width: calc(100% - 12px);
+  resize: none;
+  font-size: 22px;
+  color: $main-color;
+}
+
+.no_message {
+  border: 1px solid red;
+}
+
+.img_preview {
+  width: 100%;
+  position: relative;
+}
+
+.reset_img {
+  position: absolute;
+  top: 160px;
+  right: 5%;
+  background: $main-color;
+  color: $post-background;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.reset_img:hover {
+  background: #999;
+}
+
+.file_input,
+.form_submit {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  background: none;
+  font-weight: bold;
+  position: relative;
+  height: 35px;
+}
+
+.form_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_submit:hover,
+.file_input:hover {
+  background: $main-border-color;
+}
+
+.file_icon {
+  color: seagreen;
+  margin-right: 10px;
+}
+
+.submit_icon {
+  color: royalblue;
+  margin-right: 10px;
+}
+
+input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: pointer;
+  z-index: 90;
+}
+
+.file_btn,
+.form_btn {
+  border: none;
+  background: none;
+  font-size: 1em;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: bold;
+  outline: none;
+  color: $main-color;
+}
+
+@media only screen and (max-width: 1000px) {
+  .form_container {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .form_container {
+    width: 90%;
+  }
+}

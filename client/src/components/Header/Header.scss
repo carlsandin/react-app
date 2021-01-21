@@ -1,0 +1,54 @@
+@import "../../Variables.scss";
+
+.header_container {
+  width: 100%;
+  background: $header-background;
+  color: $secondary-color;
+  box-shadow: 5px 5px 15px -4px rgba($box-shadow-color, $box-shadow-color, $box-shadow-color, 0.49);
+  z-index: 99;
+  height: 82px;
+}
+
+.app_logo {
+  position: absolute !important;
+  top: 30px;
+  left: 30px;
+  font-size: 24px;
+  color: $span-color;
+}
+
+.header_icon_container {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.react-link_header {
+  padding: 1em;
+  font-size: 24px;
+  color: $app-background;
+  width: 80%;
+  text-align: center;
+}
+
+.react-link_header:hover {
+  color: $main-color;
+}
+
+.react-link_header_active {
+  color: $main-color;
+  border-bottom: 4px solid $span-color;
+}
+
+.header_sign-out {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 700px) {
+}

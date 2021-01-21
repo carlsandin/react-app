@@ -1,0 +1,76 @@
+@import "./Variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  position: absolute;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba($color: $main-color, $alpha: 0.4);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba($color: $main-color, $alpha: 0.8);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+  overflow-y: overlay;
+}
+
+.react-link {
+  margin: 0;
+}
+
+.app_container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $app-background;
+}
+
+.app_logo {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  font-size: 24px;
+  color: $span-color;
+}
+
+input {
+  padding: 0.5em 0.8em;
+  border-radius: 15px;
+  background: $post-background;
+  border: 1px solid $secondary-border-color;
+  outline: none;
+  color: $main-color;
+}
+
+input:focus {
+  border: 1px solid $span-color;
+}
+
+.user_avatar {
+  height: 40px;
+  width: 40px;
+  border: 1px solid $main-border-color;
+  border-radius: 50%;
+  margin-right: 5px;
+  object-fit: cover;
+  overflow: hidden;
+}

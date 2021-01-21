@@ -1,0 +1,88 @@
+@import "../../Variables.scss";
+
+.user_profile_container {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  color: $main-color;
+}
+
+.showcase_img {
+  background: $main-color;
+  width: 100%;
+  height: 30vh;
+  border-bottom: 1px solid $main-border-color;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.user_profile_info {
+  color: $main-color;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin-top: -80px;
+
+  p {
+    color: $span-color;
+  }
+}
+
+.user_profile_avatar {
+  height: 150px;
+  width: 150px;
+  border: 1px solid $main-border-color;
+  border-radius: 50%;
+}
+
+.user_follow_container {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: $main-color;
+  border-top: 1px solid $main-color;
+}
+
+.user_follow {
+  display: grid;
+  justify-items: center;
+  padding: 1em;
+}
+
+.user_profile_posts {
+  width: 70%;
+}
+
+.sort_posts {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sort_btn {
+  background: none;
+  outline: none;
+  border: 1px solid $secondary-border-color;
+  color: $main-color;
+  border-radius: 15px;
+  padding: 0.4em 0.8em;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.sort_btn_active {
+  border: 1px solid $main-color;
+  background: $main-color;
+  color: $post-background;
+}
+
+.no_user {
+  color: $main-color;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+}

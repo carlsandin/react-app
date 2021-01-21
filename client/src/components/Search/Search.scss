@@ -1,0 +1,99 @@
+@import "../../Variables.scss";
+
+.search_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search_input {
+  width: 50%;
+  margin-top: 50px;
+  background: $post-background;
+  box-shadow: 5px 5px 15px -4px rgba($box-shadow-color, $box-shadow-color, $box-shadow-color, 0.49);
+  border: 1px solid $main-border-color;
+  padding: 15px;
+  font-size: 22px;
+  border-radius: 40px;
+  transition: border-radius 0.1s ease-out;
+}
+
+.search_input:focus {
+  border: 1px solid $main-border-color;
+}
+
+.search_input_focus {
+  border-radius: 15px 15px 0 0;
+}
+
+.clear_search-input {
+  position: absolute;
+  top: 150px;
+  right: 27%;
+  font-size: 22px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.display_none {
+  display: none;
+}
+
+.search_results {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  box-shadow: 5px 5px 15px -4px rgba($box-shadow-color, $box-shadow-color, $box-shadow-color, 0.49);
+  background: $post-background;
+  border-radius: 0 0 15px 15px;
+  border: 1px solid $main-border-color;
+  overflow: hidden;
+  a {
+    color: $main-color;
+    text-decoration: none;
+  }
+}
+
+.result_grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  font-size: 20px;
+}
+
+.user_result {
+  padding: 1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  width: 100%;
+}
+
+.user_result:hover {
+  background: $app-background;
+}
+
+@media only screen and (max-width: 1000px) {
+  .search_input {
+    width: 70%;
+  }
+  .search_results {
+    width: 70%;
+  }
+  .clear_search-input {
+    right: 17%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .search_input {
+    width: 90%;
+  }
+  .search_results {
+    width: 90%;
+  }
+  .clear_search-input {
+    right: 7%;
+  }
+}
