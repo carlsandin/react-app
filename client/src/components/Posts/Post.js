@@ -3,14 +3,14 @@ import moment from "moment";
 import "./Post.css";
 import { useDispatch } from "react-redux";
 import { deletePost, likePost, unLikePost } from "../../actions/posts";
-import { FaHeart, FaRegTrashAlt, FaRegCommentAlt } from "react-icons/fa";
+import { FaHeart, FaRegTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Comments from "./Comments/Comments";
 
 // MAKE COMMENTS COMPONENT, IMPLEMENT COMMENTING
 
 const Post = ({ post, currentUser }) => {
   const [editPost, setEditPost] = useState(false);
-  const [showComments, setShowComments] = useState(false);
   const currUser = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
     : undefined;
@@ -28,9 +28,6 @@ const Post = ({ post, currentUser }) => {
     setEditPost(!editPost);
   };
 
-  const comments = () => {
-    setShowComments(!showComments);
-  };
   return (
     <div className="post_card">
       <div className="post_header">
@@ -84,27 +81,7 @@ const Post = ({ post, currentUser }) => {
         </div>
         <p>{moment(post.createdAt).fromNow()}</p>
       </div>
-      <div className="comment_container">
-        <div className="comment" onClick={comments}>
-          <FaRegCommentAlt />
-          <p> Comment</p>
-        </div>
-        <div className="comment_count">
-          <p>{post.comments.length} Comments</p>
-        </div>
-      </div>
-      <div
-        className={
-          showComments ? "input_container display_grid" : "input_container"
-        }
-      >
-        <input
-          type="text"
-          name="comment"
-          placeholder="Comment..."
-          className={showComments ? "comment_input display" : "comment_input"}
-        />
-      </div>
+      <Comments post={post} />
     </div>
   );
 };

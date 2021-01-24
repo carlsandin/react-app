@@ -64,11 +64,17 @@
 
 .user_result {
   padding: 1em;
-  cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   z-index: 100;
   width: 100%;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .user_result:hover {

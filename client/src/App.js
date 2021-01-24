@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import Header from "./components/Header/Header";
@@ -12,6 +12,7 @@ import { getUsers } from "./actions/users";
 import Search from "./components/Search/Search";
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(getInitialMode());
   const currUser = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
     : undefined;
@@ -22,11 +23,18 @@ const App = () => {
       dispatch(getUsers());
     }
   }, [dispatch]);
+  useEffect(() => {
+    localStorage.setItem("Darkmode", JSON.stringify(darkMode));
+  }, [darkMode]);
+
+  function getInitialMode() {
+    return JSON.parse(localStorage.getItem("Darkmode")) || false;
+  }
 
   return currUser ? (
     <Router>
-      <div className="app_container">
-        <Header />
+      <div className={darkMode ? "app_container_dark" : "app_container"}>
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
         <Route exact path="/">
           <Form />
           <Posts />

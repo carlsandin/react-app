@@ -39,14 +39,14 @@
   padding: 6px 0px 6px 6px;
   border-radius: 8px;
   height: 100px;
-  width: calc(100% - 12px);
+  width: 100%;
   resize: none;
   font-size: 22px;
   color: $main-color;
 }
 
 .no_message {
-  border: 1px solid red;
+  border: 1px solid red !important;
 }
 
 .img_preview {
@@ -99,18 +99,13 @@
   align-items: center;
 }
 
-.form_submit:hover,
-.file_input:hover {
-  background: $main-border-color;
-}
-
 .file_icon {
-  color: seagreen;
+  color: $span-color !important;
   margin-right: 10px;
 }
 
 .submit_icon {
-  color: royalblue;
+  color: $span-color !important;
   margin-right: 10px;
 }
 

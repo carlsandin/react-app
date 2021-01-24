@@ -8,11 +8,12 @@ import {
   FaUserAlt,
   FaSeedling,
   FaSignOutAlt,
+  FaCog,
 } from "react-icons/fa";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ darkMode, setDarkMode }) => {
   const [showMenu, setShowMenu] = useState(false);
   const currUser = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
@@ -26,15 +27,7 @@ const Header = () => {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
-  const activeIcon = (e) => {
-    document
-      .querySelectorAll(".react-link_header")
-      .forEach((icon) => icon.classList.remove("react-link_header_active"));
-    if (e.target.classList.contains("react-link_header"))
-      e.target.classList.add("react-link_header_active");
-    else if (e.target.parentElement.classList.contains("react-link_header"))
-      e.target.parentElement.classList.add("react-link_header_active");
-  };
+
   return (
     <div className="header_container">
       <NavLink to="/">
@@ -75,7 +68,19 @@ const Header = () => {
         </NavLink>
       </div>
       <div className="header_settings">
-        <FaSignOutAlt onClick={logOutUser} className="header_sign-out" />
+        <FaCog className="header_settings_cog" onClick={toggleMenu} />
+        <div className={showMenu ? "settings_menu" : "display_none"}>
+          <p>Color Mode</p>
+          <input
+            checked={darkMode}
+            onChange={() => setDarkMode((prevMode) => !prevMode)}
+            type="checkbox"
+            id="checkbox"
+          />
+          <label htmlFor="checkbox" />
+          <p>Log Out</p>
+          <FaSignOutAlt onClick={logOutUser} className="log-out_btn" />
+        </div>
       </div>
     </div>
   );

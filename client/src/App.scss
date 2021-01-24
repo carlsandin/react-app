@@ -43,15 +43,15 @@ body {
   align-items: center;
   background: $app-background;
 }
-
-.app_logo {
-  position: fixed;
-  top: 30px;
-  left: 30px;
-  font-size: 24px;
-  color: $span-color;
+.user_avatar {
+  height: 40px;
+  width: 40px;
+  border: 1px solid $main-border-color;
+  border-radius: 50%;
+  margin-right: 5px;
+  object-fit: cover;
+  overflow: hidden;
 }
-
 input {
   padding: 0.5em 0.8em;
   border-radius: 15px;
@@ -61,16 +61,130 @@ input {
   color: $main-color;
 }
 
-input:focus {
-  border: 1px solid $span-color;
+.app_container_dark {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $app-background_dark;
+  color: $main-color_dark;
+
+  .user_avatar {
+    border-color: $main-border-color_dark;
+  }
+
+  .form_container {
+    background: $post-background_dark;
+    border: 1px solid $main-border-color_dark;
+    color: $main-color_dark;
+    textarea {
+      background: $app-background_dark;
+      border: 1px solid $main-border-color_dark;
+      color: $main-color_dark;
+    }
+    button {
+      color: $main-color_dark;
+    }
+
+    * {
+      border-color: $main-border-color_dark;
+      color: $main-color_dark;
+    }
+  }
+
+  .settings_menu {
+    background: $header-background_dark;
+    color: $main-color_dark;
+  }
+  .header_container {
+    background: $header-background_dark;
+    border: 1px solid $main-border-color_dark;
+    color: $main-color_dark;
+  }
+
+  .post_card {
+    background: $post-background_dark;
+    border: 1px solid $main-border-color_dark;
+
+    div {
+      border-color: $main-border-color_dark;
+    }
+
+    .post_header_top a {
+      color: $main-color_dark;
+    }
+
+    p {
+      color: $main-color_dark;
+    }
+  }
+
+  input {
+    background: $post-background_dark;
+    border: 1px solid $secondary-border-color_dark;
+    outline: none;
+    color: $main-color_dark;
+  }
+
+  .react-link_header {
+    color: $app-background_dark;
+  }
+
+  .react-link_header:hover {
+    color: $main-color_dark;
+  }
+
+  .react-link_header_active {
+    color: $main-color_dark;
+  }
+
+  .user_profile_info {
+    color: $main-color_dark;
+  }
+
+  .user_follow_container {
+    color: $main-color_dark;
+    border-color: $secondary-border-color_dark;
+  }
+
+  .sort_btn {
+    border-color: $main-color_dark;
+    color: $main-color_dark;
+  }
+
+  .sort_btn_active {
+    background: $span-color_dark;
+    color: $app-background_dark;
+    border-color: $app-background_dark;
+  }
+
+  .search_results {
+    background: $post-background_dark;
+    border-color: $main-border-color_dark;
+    color: $main-color_dark;
+  }
+
+  .search_input:focus {
+    border-color: $main-border-color_dark;
+  }
+
+  .user_result a {
+    color: $main-color_dark;
+  }
+  .user_result:hover {
+    background: $app-background_dark;
+  }
 }
 
-.user_avatar {
-  height: 40px;
-  width: 40px;
-  border: 1px solid $main-border-color;
-  border-radius: 50%;
-  margin-right: 5px;
-  object-fit: cover;
-  overflow: hidden;
+.app_logo {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  font-size: 24px;
+  color: $span-color;
+}
+
+input:focus {
+  border: 1px solid $span-color;
 }

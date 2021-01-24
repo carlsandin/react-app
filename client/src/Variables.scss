@@ -1,19 +1,19 @@
 // DARK MODE
-/*
-$header-background: #05253b;
-$app-background: #0f1626;
-$post-background: #05253b;
-$main-color: #eee;
-$secondary-color: #eee;
-$main-border-color: #10182b;
-$secondary-border-color: #10182b;
-$span-color: #43c0f6;
-$box-shadow-color: 245;
-*/
+
+$header-background_dark: #05253b;
+$app-background_dark: #0f1626;
+$post-background_dark: #05253b;
+$main-color_dark: #eee;
+$secondary-color_dark: #eee;
+$main-border-color_dark: #10182b;
+$secondary-border-color_dark: #17233f;
+$span-color_dark: #43c0f6;
+$box-shadow-color_dark: 245;
+
 // LIGHT MODE
 
 $header-background: #fff;
-$app-background: #f0f0f0;
+$app-background: rgb(247, 247, 247);
 $post-background: #fff;
 $main-color: #10182b;
 $secondary-color: #10182b;

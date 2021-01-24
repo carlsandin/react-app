@@ -1,0 +1,43 @@
+@import "../../../Variables.scss";
+
+.comment_container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $main-border-color;
+}
+
+.comment {
+  padding: 1em 0.6em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.comment_count {
+  padding: 1em 0.6em;
+}
+
+.comment_input_container {
+  width: 100%;
+  display: none;
+}
+
+.display_grid {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.6em;
+  box-sizing: border-box;
+}
+
+.comment_input {
+  width: 90%;
+  display: none;
+}
+
+.display {
+  display: flex;
+}

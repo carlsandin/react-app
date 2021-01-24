@@ -27,7 +27,10 @@ const Follow = ({ user, currUser }) => {
   };
   return (
     <div>
-      <button className="sort_btn" onClick={followUser}>
+      <button
+        className={isFollow ? "sort_btn sort_btn_active" : "sort_btn"}
+        onClick={followUser}
+      >
         {isFollow ? "Unfollow" : "Follow"}
       </button>
     </div>

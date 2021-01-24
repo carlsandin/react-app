@@ -1,14 +1,3 @@
-/*
-$header-background: #05253b;
-$app-background: #0f1626;
-$post-background: #05253b;
-$main-color: #eee;
-$secondary-color: #eee;
-$main-border-color: #10182b;
-$secondary-border-color: #10182b;
-$span-color: #43c0f6;
-$box-shadow-color: 245;
-*/
 .form_container {
   width: 50%;
   margin-top: 50px;
@@ -62,14 +51,14 @@ $box-shadow-color: 245;
   padding: 6px 0px 6px 6px;
   border-radius: 8px;
   height: 100px;
-  width: calc(100% - 12px);
+  width: 100%;
   resize: none;
   font-size: 22px;
   color: #10182b;
 }
 
 .no_message {
-  border: 1px solid red;
+  border: 1px solid red !important;
 }
 
 .img_preview {
@@ -143,18 +132,13 @@ $box-shadow-color: 245;
           align-items: center;
 }
 
-.form_submit:hover,
-.file_input:hover {
-  background: #e6e6e6;
-}
-
 .file_icon {
-  color: seagreen;
+  color: #41addb !important;
   margin-right: 10px;
 }
 
 .submit_icon {
-  color: royalblue;
+  color: #41addb !important;
   margin-right: 10px;
 }
 

@@ -11,12 +11,11 @@
   border: 1px solid $main-border-color;
   background: $post-background;
   color: $main-color;
-  overflow: hidden;
   box-shadow: 5px 5px 15px -4px rgba($box-shadow-color, $box-shadow-color, $box-shadow-color, 0.49);
 }
 
 .post_img {
-  width: 100%;
+  width: calc(100% + 1px);
   height: 100%;
   vertical-align: top;
 }
@@ -138,45 +137,6 @@
 
 .liked {
   color: red;
-}
-
-/* COMMENTS */
-
-.comment_container {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  border-top: 1px solid $main-border-color;
-}
-
-.comment {
-  padding: 1em 0.6em;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.comment_count {
-  padding: 1em 0.6em;
-}
-
-.input_container {
-  width: 100%;
-  display: none;
-}
-
-.display_grid {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  padding: 0.6em;
-}
-
-.comment_input {
-  width: 95%;
-  display: none;
 }
 
 /* OUT OF POSTS */

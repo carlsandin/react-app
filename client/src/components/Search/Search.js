@@ -49,18 +49,20 @@ const Search = () => {
             <li className="user_result">No users found</li>
           ) : (
             users.map((user) => (
-              <div>
+              <div className="user_result">
                 <Link
                   to={`/user/${user.username}`}
                   onClick={resetQuery}
                   key={user.username}
                 >
-                  <li className="user_result">
+                  <li>
                     <img src={user.avatar} alt="" className="user_avatar" />
                     {user.username}
                   </li>
                 </Link>
-                <Follow user={user} currUser={currUser} />
+                {user.username === currUser.username ? null : (
+                  <Follow user={user} currUser={currUser} />
+                )}
               </div>
             ))
           )}
