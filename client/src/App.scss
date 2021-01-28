@@ -17,11 +17,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba($color: $main-color, $alpha: 0.4);
+  background: rgba($color: $span-color, $alpha: 0.2);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba($color: $main-color, $alpha: 0.8);
+  background: rgba($color: $span-color, $alpha: 0.6);
 }
 
 body {
@@ -89,6 +89,18 @@ input {
 
     * {
       border-color: $main-border-color_dark;
+      /* color: $main-color_dark; */
+    }
+
+    .file_input,
+    .form_submit {
+      color: $main-color_dark;
+
+      &:hover {
+        background: rgba($color: $app-background-dark, $alpha: 0.4);
+      }
+    }
+    .file_btn {
       color: $main-color_dark;
     }
   }
@@ -116,6 +128,15 @@ input {
     }
 
     p {
+      color: $main-color_dark;
+    }
+
+    input {
+      background: $app-background_dark;
+      border-color: $main-border-color_dark;
+    }
+
+    .comment svg {
       color: $main-color_dark;
     }
   }
@@ -148,6 +169,10 @@ input {
     border-color: $secondary-border-color_dark;
   }
 
+  .showcase_img {
+    background: $main-color_dark;
+  }
+
   .sort_btn {
     border-color: $main-color_dark;
     color: $main-color_dark;
@@ -174,6 +199,10 @@ input {
   }
   .user_result:hover {
     background: $app-background_dark;
+  }
+
+  .no_user {
+    color: $main-color_dark;
   }
 }
 

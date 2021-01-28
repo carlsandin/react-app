@@ -14,6 +14,42 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 
 const Header = ({ darkMode, setDarkMode }) => {
+  const doc = document.documentElement;
+  const w = window;
+  let prevScroll = w.scrollY || doc.scrollTop;
+  let curScroll;
+  let direction = 0;
+  let prevDirection = 0;
+
+  const checkScroll = function () {
+    curScroll = w.scrollY || doc.scrollTop;
+    if (curScroll > prevScroll) {
+      //scrolled up
+      direction = 2;
+    } else if (curScroll < prevScroll) {
+      //scrolled down
+      direction = 1;
+    }
+
+    if (direction !== prevDirection) {
+      toggleHeader(direction, curScroll);
+    }
+
+    prevScroll = curScroll;
+  };
+
+  let toggleHeader = function (direction, curScroll) {
+    const header = document.querySelector(".header_container");
+    if (direction === 2 && curScroll > 82) {
+      header.classList.add("hide");
+      prevDirection = direction;
+    } else if (direction === 1) {
+      header.classList.remove("hide");
+      prevDirection = direction;
+    }
+  };
+
+  window.addEventListener("scroll", checkScroll);
   const [showMenu, setShowMenu] = useState(false);
   const currUser = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))

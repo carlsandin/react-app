@@ -58,6 +58,7 @@ const Form = () => {
               className="choose_file"
               type="file"
               name="file"
+              accept="image/*"
               multiple={false}
               onDone={({ base64 }) =>
                 setPostData({ ...postData, selectedFile: base64 })

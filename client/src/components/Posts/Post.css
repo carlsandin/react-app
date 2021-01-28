@@ -1,14 +1,3 @@
-/*
-$header-background: #05253b;
-$app-background: #0f1626;
-$post-background: #05253b;
-$main-color: #eee;
-$secondary-color: #eee;
-$main-border-color: #10182b;
-$secondary-border-color: #10182b;
-$span-color: #43c0f6;
-$box-shadow-color: 245;
-*/
 .posts_container {
   width: 50%;
 }
@@ -25,7 +14,7 @@ $box-shadow-color: 245;
 }
 
 .post_img {
-  width: calc(100% + 1px);
+  width: 100%;
   height: 100%;
   vertical-align: top;
 }
@@ -86,7 +75,7 @@ $box-shadow-color: 245;
 }
 
 .post_settings:hover {
-  background: #f0f0f0;
+  background: #f7f7f7;
 }
 
 .dot {

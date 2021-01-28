@@ -73,7 +73,7 @@ const UserProfile = ({ match }) => {
       {posts.length === 0 ? (
         <Loader />
       ) : (
-        <div className="user_profile_posts">
+        <div className="posts_container">
           {userPosts.map((post) => (
             <Post post={post} key={post._id} currentUser={user} />
           ))}

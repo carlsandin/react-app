@@ -2,7 +2,7 @@
 
 .form_container {
   width: 50%;
-  margin-top: 50px;
+  margin-top: 150px;
   border-radius: 15px;
   background: $post-background;
   border: 1px solid $main-border-color;
@@ -85,6 +85,10 @@
   font-weight: bold;
   position: relative;
   height: 35px;
+
+  &:hover {
+    background: rgba($color: $app-background, $alpha: 0.7);
+  }
 }
 
 .form_submit {

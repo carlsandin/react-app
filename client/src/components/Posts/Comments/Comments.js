@@ -12,7 +12,7 @@ const Comments = ({ post }) => {
       <div className="comment_container">
         <div className="comment" onClick={comments}>
           <FaRegCommentAlt />
-          <p> Comment</p>
+          <p>Comment</p>
         </div>
         <div className="comment_count">
           <p>{post.comments.length} Comments</p>

@@ -1,17 +1,27 @@
 .header_container {
   width: 100%;
   background: #fff;
-  color: #10182b;
+  color: #999;
   -webkit-box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.49);
           box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.49);
   z-index: 99;
   height: 82px;
+  position: fixed;
+  top: 0;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.hide {
+  top: -85px;
 }
 
 .app_logo {
   position: absolute !important;
-  top: 30px;
+  top: 50%;
   left: 30px;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
   font-size: 24px;
   color: #41addb;
 }
@@ -32,11 +42,11 @@
 .react-link_header {
   padding: 1em;
   font-size: 24px;
-  color: #f7f7f7;
+  color: #999;
   width: 80%;
   text-align: center;
-  -webkit-transition: 0.1s ease-in-out;
-  transition: 0.1s ease-in-out;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
 }
 
 .react-link_header:hover {
@@ -45,6 +55,7 @@
 
 .react-link_header_active {
   color: #10182b;
+  position: relative;
   border-bottom: 4px solid #41addb;
 }
 
@@ -70,6 +81,7 @@
   padding: 1em;
   font-size: 22px;
   border-radius: 15px;
+  border: 1px solid #e6e6e6;
 }
 
 .settings_menu input[type="checkbox"] {
@@ -117,7 +129,7 @@
 }
 
 .settings_menu label:active:after {
-  width: 130px;
+  width: 80px;
 }
 
 .log-out_btn {

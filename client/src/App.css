@@ -17,12 +17,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(16, 24, 43, 0.4);
+  background: rgba(65, 173, 219, 0.2);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 24, 43, 0.8);
+  background: rgba(65, 173, 219, 0.6);
 }
 
 body {
@@ -111,6 +111,20 @@ input {
 
 .app_container_dark .form_container * {
   border-color: #10182b;
+  /* color: $main-color_dark; */
+}
+
+.app_container_dark .form_container .file_input,
+.app_container_dark .form_container .form_submit {
+  color: #eee;
+}
+
+.app_container_dark .form_container .file_input:hover,
+.app_container_dark .form_container .form_submit:hover {
+  background: rgba(15, 22, 38, 0.4);
+}
+
+.app_container_dark .form_container .file_btn {
   color: #eee;
 }
 
@@ -142,6 +156,15 @@ input {
   color: #eee;
 }
 
+.app_container_dark .post_card input {
+  background: #0f1626;
+  border-color: #10182b;
+}
+
+.app_container_dark .post_card .comment svg {
+  color: #eee;
+}
+
 .app_container_dark input {
   background: #05253b;
   border: 1px solid #17233f;
@@ -168,6 +191,10 @@ input {
 .app_container_dark .user_follow_container {
   color: #eee;
   border-color: #17233f;
+}
+
+.app_container_dark .showcase_img {
+  background: #eee;
 }
 
 .app_container_dark .sort_btn {
@@ -197,6 +224,10 @@ input {
 
 .app_container_dark .user_result:hover {
   background: #0f1626;
+}
+
+.app_container_dark .no_user {
+  color: #eee;
 }
 
 .app_logo {

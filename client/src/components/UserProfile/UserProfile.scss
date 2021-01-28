@@ -1,6 +1,7 @@
 @import "../../Variables.scss";
 
 .user_profile_container {
+  margin-top: 82px;
   width: 100%;
   display: grid;
   justify-items: center;
@@ -55,7 +56,7 @@
 }
 
 .sort_posts {
-  width: 70%;
+  width: 50%;
   display: flex;
   justify-content: flex-end;
 }
@@ -79,10 +80,21 @@
 
 .no_user {
   color: $main-color;
-  height: 100vh;
+  height: calc(100vh - 82px);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3em;
+}
+
+@media only screen and (max-width: 1000px) {
+  .sort_posts {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .sort_posts {
+    width: 90%;
+  }
 }

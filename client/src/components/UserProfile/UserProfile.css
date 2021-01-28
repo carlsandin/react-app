@@ -1,4 +1,5 @@
 .user_profile_container {
+  margin-top: 82px;
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -60,7 +61,7 @@
 }
 
 .sort_posts {
-  width: 70%;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,7 +89,7 @@
 
 .no_user {
   color: #10182b;
-  height: 100vh;
+  height: calc(100vh - 82px);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -100,5 +101,17 @@
       -ms-flex-align: center;
           align-items: center;
   font-size: 3em;
+}
+
+@media only screen and (max-width: 1000px) {
+  .sort_posts {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .sort_posts {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=UserProfile.css.map */
